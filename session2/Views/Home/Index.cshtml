@@ -1,0 +1,30 @@
+﻿@using DataAccess.Entities
+@model List<Account>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Owner Id</th>
+            <th>Balance</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Account account in Model!)
+       {
+           <tr>
+               <td>@account.Id</td>
+               <td>@account.OwnerId</td>
+               <td>@account.Balance $</td>
+           </tr>
+       }
+    </tbody>
+</table>
+
