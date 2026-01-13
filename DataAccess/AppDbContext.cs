@@ -1,4 +1,5 @@
 ﻿using DataAccess.Entities;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace DataAccess
 {
-    public partial class AppDbContext: DbContext
+    public partial class AppDbContext: IdentityDbContext<AppUser>
     {
         public AppDbContext(DbContextOptions<AppDbContext> options)
             : base(options)
@@ -16,6 +17,7 @@ namespace DataAccess
 
         }
 
+        public override DbSet<AppUser> Users { get; set; }
         public DbSet<Account>? Accounts { get; set; }
         public DbSet<Transaction>? Transactions { get; set; }
 

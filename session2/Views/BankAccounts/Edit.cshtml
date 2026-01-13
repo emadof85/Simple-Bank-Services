@@ -1,0 +1,26 @@
+﻿@model session2.Models.AccountEditModel
+
+@*@model DataAccess.Entities.Account*@
+
+
+<form method="post" asp-action="Edit" asp-controller="Accounts">
+       <input type="hidden" asp-for="Id" />
+       <div class="row ">
+              <div class="col col-md-3 col-sm-12">
+                     <label class="text-success text-center">
+                            Balance
+                     </label>
+                     <input class="form-control" name="Balance" asp-for="Balance" />
+                     <span asp-validation-for="Balance" class="text-danger"></span>
+              </div>
+
+              <div class="row">
+                     <div class="col-md-12 col-sm-12">
+                            <button type="submit">Save</button>
+                     </div>
+              </div>
+       </div>
+</form>
+
+<partial name="_ValidationScriptsPartial" />
+@Html.ValidationSummary(true)
